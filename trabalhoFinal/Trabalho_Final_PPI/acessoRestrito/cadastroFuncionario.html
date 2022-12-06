@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <title>Cadastro Funcionário</title>
+    <link rel="icon" href="../images/clinic-medical-solid.svg">
+    <style>
+        #col_especialidade,
+        #col_crm {
+            display: none;
+        }
+
+        #formCadastroFuncionario {
+            border: 0.5px solid rgb(204, 201, 201);
+            border-radius: 15px;
+            padding: 1.5% 2%;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 40px;
+            background-color: white;
+        }
+
+        #headerContent {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color: rgb(52, 89, 124);
+            background-color: whitesmoke;
+            padding: 6px;
+            padding-top: 10px;
+            border: 10em black;
+        }
+
+        #headerContent h3 {
+            margin-left: 6px;
+            padding-top: 4px;
+        }
+
+        #headerContent img {
+            width: 40px;
+            height: 40px;
+        }
+
+        nav {
+            background-color: whitesmoke;
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            padding: 2px;
+            box-shadow: 5px 5px 15px 5px #858585;
+        }
+
+        html,
+        body {
+            background-image: url("../images/bg2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 105%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer {
+            width: 100%;
+            min-height: 10px;
+            text-align: center;
+        }
+
+        main {
+            width: 100%;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container" id="headerContent">
+    
+          <img src="../images/logo.png" alt="logo">
+          <h3>MultiMed</h3>
+    
+        </div>
+    </header>
+    <nav class="container">
+        <ul class="nav nav-pills nav-fill justify-content-center p-1">
+            <li class="nav-item">
+                <a class="nav-link" href="home.php">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" aria-current="page" href="#" role="button"
+                    id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar</a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                    <li><a class="nav-item dropdown-item" href="cadastroFuncionario.html">Novo Funcionário</a></li>
+                    <li><a class="nav-item dropdown-item" href="cadastroPaciente.html">Novo Paciente</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2"
+                    data-bs-toggle="dropdown" aria-expanded="false">Listar</a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                    <li><a class="dropdown-item" href="lista_funcionarios.php">Funcionários</a></li>
+                    <li><a class="dropdown-item" href="lista_pacientes.php">Pacientes</a></li>
+                    <li><a class="dropdown-item" href="lista_enderecos.php">Endereços</a></li>
+                    <li><a class="dropdown-item" href="lista_agendamentos.php">Agendamentos</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            <form action="cadastraFuncionario.php" method="post" id="formCadastroFuncionario">
+                <div class="row my-3">
+                    <div class="col-md-9 ">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome">
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="sexo" class="form-label">Sexo</label>
+                        <select name="sexo" id="sexo" class="form-select">
+                            <option selected value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-9">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone" name="telefone">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-lg-3">
+                        <label for="cep" class="form-label">CEP</label>
+                        <input type="text" class="form-control" id="cep" name="cep">
+                    </div>
+                    <div class="col-md-9">
+                        <label for="logradouro" class="form-label">Logradouro</label>
+                        <input type="text" class="form-control" id="logradouro" name="logradouro">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-9">
+                        <label for="cidade" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" name="cidade">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="estado" class="form-label">Estado</label>
+                        <select name="estado" id="estado" class="form-select">
+                            <option selected value="MG">MG</option>
+                            <option value="SP">SP</option>
+                            <option value="RJ">RJ</option>
+                            <option value="GO">GO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-xxl-4">
+                        <label for="dataInicioTrabalho" class="form-label">
+                            Início do Contrato de Trabalho
+                        </label>
+                        <input type="date" class="form-control" id="dataInicioTrabalho" name="dataInicioTrabalho">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="salario" class="form-label">Salário</label>
+                        <input type="text" class="form-control" id="salario" name="salario">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="senha" class="form-label">Senha do usuário</label>
+                        <input type="password" class="form-control" id="senha" name="senha">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-3">
+                        <label for="tipoFuncionario" class="form-label">Tipo de Funcionário</label>
+                        <select name="tipoFuncionario" id="tipoFuncionario" class="form-select">
+                            <option selected value="funcionario">Funcionário</option>
+                            <option value="medico">Medico</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3" id="col_especialidade">
+                        <label for="especialidade" class="form-label">Especialidade</label>
+                        <select name="especialidade" id="especialidade" class="form-select">
+                            <option selected value="">Sel..</option>
+                            <option value="cardiologia">Cardiologia</option>
+                            <option value="dermatologia">Dermatologia</option>
+                            <option value="oftalmologia">Oftalmologia</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3" id="col_crm">
+                        <label for="crm" class="form-label">CRM</label>
+                        <input type="text" class="form-control" id="crm" name="crm">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3">
+                        <button class="btn btn-primary">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="align-items-end">
+        <p class="fs-8 text-center">©Copyright 2022. All rights reserved.</p>
+    </footer>
+
+    <script>
+
+        async function buscaEndereco(cep) {
+
+            if (cep.length != 9) return;
+
+            try {
+                let response = await fetch("busca-endereco.php?cep=" + cep);
+                if (!response.ok) throw new Error(response.statusText);
+                var endereco = await response.json();
+            }
+            catch (e) {
+                console.error(e)
+                return
+            }
+
+            let form = document.querySelector("form");
+            form.logradouro.value = endereco.logradouro;
+            form.cidade.value = endereco.cidade;
+            form.estado.value = endereco.estado;
+
+        }
+        window.onload = function () {
+            let tipoFuncionario = document.getElementById("tipoFuncionario");
+
+            tipoFuncionario.addEventListener("change", (event) => {
+
+                let especialidade = document.getElementById("col_especialidade");
+                let crm = document.getElementById("col_crm");
+
+                if (tipoFuncionario.value == 'medico') {
+                    especialidade.style.display = 'inline';
+                    crm.style.display = 'inline';
+                } else {
+                    especialidade.style.display = 'none';
+                    crm.style.display = 'none';
+                }
+
+            })
+            const inputCep = document.querySelector("#cep");
+            inputCep.onkeyup = () => buscaEndereco(inputCep.value);
+        }
+    </script>
+
+</body>
+
+</html>

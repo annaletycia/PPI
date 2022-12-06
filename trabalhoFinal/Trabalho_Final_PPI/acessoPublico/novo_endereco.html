@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <title>Novo Endereço</title>
+    <link rel="icon" href="../images/clinic-medical-solid.svg">
+    <style>
+        body {
+            background-image: url("../images/bg2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        #formEndereco {
+            border: 0.5px solid rgb(204, 201, 201);
+            border-radius: 15px;
+            padding: 1.5% 2%;
+            width: 50%;
+            margin: 0 auto;
+            background-color: white;
+
+        }
+
+        #headerContent {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color: rgb(52, 89, 124);
+            background-color: whitesmoke;
+            padding: 6px;
+            padding-top: 10px;
+            border: 10em black;
+        }
+
+        #headerContent h3 {
+            margin-left: 6px;
+            padding-top: 4px;
+        }
+
+        #headerContent img {
+            width: 40px;
+            height: 40px;
+        }
+
+        nav {
+            background-color: whitesmoke;
+            padding: 2px;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        footer {
+            margin-top: 5em;
+        }
+
+        nav,
+        footer {
+            width: 100%;
+            min-height: 50px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: whitesmoke;
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            padding: 2px;
+            box-shadow: 5px 5px 20px;
+            margin-bottom: 2%;
+        }
+    </style>
+
+<body>
+    <header>
+        <div class="container" id="headerContent">
+
+            <img src="../images/logo.png" alt="logo">
+            <h3>MultiMed</h3>
+
+        </div>
+    </header>
+    <nav class="container">
+        <ul class="nav nav-pills nav-fill justify-content-center p-1">
+            <li class="nav-item">
+                <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="galeria.html">Galeria</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="novo_endereco.html">Novo Endereço</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="agendamento.html">Agendamento</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <form action="cadastra_endereco.php" class="row" id="formEndereco" method="post">
+                <div class="my-2">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" id="cep" name="cep" class="form-control">
+                </div>
+                <div class="my-2">
+                    <label for="logradouro" class="form-label">Logradouro</label>
+                    <input type="text" id="logradouro" name="logradouro" class="form-control">
+                </div>
+                <div class="my-2">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" class="form-control">
+                </div>
+                <div class="my-2">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select name="estado" id="estado" class="form-select">
+                        <option selected value="MG">MG</option>
+                        <option value="SP">SP</option>
+                        <option value="RJ">RJ</option>
+                        <option value="GO">GO</option>
+                    </select>
+                </div>
+                <div class="my-2">
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
+            </form>
+
+        </div>
+    </main>
+    <footer class="align-items-end">
+        <p class="fs-8 text-center">©Copyright 2022. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
