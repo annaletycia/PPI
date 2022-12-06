@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Contato</title>
+    </head>
+
+    <body>
+        
+        <h1>Informações de Contato</h1>
+        <a href="http://annaletycia.atwebpages.com/trabalho1">Voltar à página principal</a><br>
+        <br>
+
+        <form action ="contato.php" method="post">
+
+        <fieldset>
+            <legend><b>Dados Pessoais:</b></legend><br>
+
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div> <br>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div> <br>
+            <div>
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" required>
+            </div> <br>
+            <div>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+            </div> <br>
+            <div>
+                <label for="nascimento">Data de Nascimento:</label>
+                <input type="date" id="nascimento" name="nascimento">
+            </div> <br>
+            <div>
+                <label for="sexo">Sexo:</label>
+                <select id="sexo" name="sexo">
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                    <option value="NB">Não Binário</option>
+                </select> 
+            </div> <br>
+            <div>
+                <label for="estadoCivil">Estado Civil:</label>
+                <select id="estadoCivil" name="estadoCivil">
+                    <option value="S">Solteiro</option>
+                    <option value="C">Casado</option>
+                    <option value="D">Divorciado</option>
+                </select>
+            </div>
+        </fieldset> <br>
+
+        <fieldset>
+            <legend><b>Dados da Empresa:</b></legend> <br>
+
+            <div> 
+                <label for="CNPJ">CNPJ:</label>
+                <input type="number" id="CNPJ" name="CNPJ">
+            </div><br>
+            <div>
+                <label for="razaoSocial">Razão Social:</label>
+                <input type="text" id="razaoSocial" name="razaoSocial">
+            </div> <br>
+            <div>
+                <label for="atuacao">Ramo de Atuação:</label>
+                <input type="text" id="atuacao" name="atuacao">
+            </div>
+        </fieldset> <br>
+
+        <fieldset>
+
+            <legend><b>Endereço:</b></legend>
+            <div>
+                <label for="CEP">CEP:</label>
+                <input type="number" id="CEP" name="CEP" required>
+            </div> <br>
+            <div>
+                <label for="tipoLogradouro">Tipo de Logradouro:</label>
+                <select id="tipoLogradouro" name="tipoLogradouro" required>
+                    <option value="">Escolha uma opção</option>
+                    <option value="rua">Rua</option>
+                    <option value="bairro">Bairro</option>
+                    <option value="praca">Praça</option>
+                    <option value="avenida">Avenida</option>
+                </select>
+            </div><bR>
+            <div>
+                <label for="logradouro">Logradouro:</label>
+                <input type="text" id="logradouro" name="logradouro" required>
+            </div><br>
+            <div>
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" required>
+            </div><br>
+            <div>
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" required>
+            </div>
+        </fieldset><br>
+
+        <fieldset>
+
+            <legend><b>Descrição Detalhada do Interesse:</b></legend>
+            <div>
+                <label for="descricao">Caixa de texto:</label><br>
+                <textarea id="descricao" name="descricao" cols="40" rows="5"></textarea>
+            </div>
+
+        </fieldset><br>
+        
+        <fieldset>
+            <legend><b>Vagas Disponíveis:</b></legend>
+            <div>
+                <input type="checkbox" id="auxiliar" name="vagas[]" value="auxiliar">
+                <label for="auxiliar">Auxiliar Administrativo</label>
+            </div>
+            <div>
+                <input type="checkbox" id="supervisor" name="vagas[]" value="supervisor">
+                <label for="supervisor">Supervisor de Vendas</label>
+            </div>
+            <div>
+                <input type="checkbox" id="assistente" name="vagas[]" value="assistente">
+                <label for="assistente">Assistente de Contabilidade</label>
+            </div>
+            <div>
+                <input type="checkbox" id="analista" name="vagas[]" value="analista">
+                <label for="analista">Analista de Marketing</label>
+            </div>
+        </fieldset><br>
+
+        <fieldset>
+            <legend><b>Área de Interesse:</b></legend>
+            <div>
+                <input type="radio" id="administrativo" name="area" value="administrativo">
+                <label for="administrativo">Administrativo</label>
+            </div>
+            <div>
+                <input type="radio" id="comercial" name="area" value="comercial">
+                <label for="comercial">Comercial</label>
+            </div>
+            <div>
+                <input type="radio" id="industrial" name="area" value="industrial">
+                <label for="industrial">Industrial</label>
+            </div>
+        </fieldset>
+
+        <br><button>Enviar</button>
+        </form>
+        
+        <hr>
+        <footer>
+            <p>©Copyright 2050 by nobody. All rights reversed.</p>
+        </footer>
+        
+    </body>
+</html>
+
