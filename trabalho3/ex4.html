@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+
+    <style>
+
+        body{
+            background-color: rgb(221, 220, 220);
+        }
+
+        /*Estilização da caixa que apresentará o formulário de cadastro/login a ser preenchido pelo usuário*/
+        .loginBox {
+            width: 35%; /*largura da loginBox*/
+            margin: auto; /*distância da margem da lateral da página, centralizada*/
+            padding: 3% 3%; /*distância entre o conteúdo da caixa e a sua margem interna*/
+            margin-top: 5em; /*distância da margem do topo da página*/
+
+
+            background-color: white;
+            border: 0.5px solid rgb(204, 201, 201); 
+            border-radius: 15px; /*bordas arredondadas*/
+
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /*Estilização dos campos 'input' dos formulários onde o usuário poderá preencher as informações desejadas*/
+        input {
+            margin: 8px 0 10px;
+            padding: 8px;
+            width: 95%;
+            border: 0.5px solid #888;
+            border-radius: 4px;
+        }
+
+        /*Características apresentadas pelos campos 'input' dos formulários quando o foco estiver sobre eles (quando o usuário clicar para digitar)*/
+        input:focus {
+            border: 0.5px solid green; /*bordas verdes*/
+            box-shadow: 0px 0px 5px lightgreen; /*sombra do campo esverdeado, trazendo foco ao campo selecionado*/
+            outline: none; /*propriedades de contorno do campo*/
+        }
+
+        /*Estilização dos span que serão responsáveis pelas menssagens de erro caso algum campo deixe de se preenchido*/
+        span {
+            font-size: 15px; /*tamanho da fonte*/
+            padding: 2px;
+            color: red; /*cor vermelha para ser chamativo*/
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div class="loginBox"> <!--div que faz uso da classe 'loginBox'-->
+            <h3>Cadastro de Usuário</h3>
+
+            <form name="formCadastro" action="action.php" method="post"> <!--formulário com nome de identificação 'formCadastro'-->
+
+                <div>
+                    <label for="usuario">Usuário:</label>
+                    <input type="text" id="usuario" name="usuario" autocomplete="off"> <!--Campo usuário-->
+                    <span></span> <!--Elemento span vazio que irá receber a mensagem de erro caso o campo não seja preenchido pelo usuário-->
+                </div><br>
+
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" autocomplete="off"> <!--Campo email-->
+                    <span></span> <!--Elemento span vazio que irá receber a mensagem de erro caso o campo não seja preenchido pelo usuário-->
+                </div><br>
+
+                <div>
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha"> <!--Campo senha-->
+                    <span></span> <!--Elemento span vazio que irá receber a mensagem de erro caso o campo não seja preenchido pelo usuário-->
+                </div>
+
+                <br><button>Cadastrar</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+
+        window.onload = function() {  //função anônima em que o evento load ocorre quando a página inteira for carregada
+            document.forms.formCadastro.onsubmit = validaForm; //acessa o formulário pela propriedade 'document.forms' e o nome do formulário 'formCadastro'
+            //quando o formulário for submetido, a função 'validaForm' será chamada
+        }
+
+        //função de validação do formulário, verifica se todos os campos foram preenchidos. Caso o usuário deixe algum campo em branco, uma mensagem de erro irá surgir
+        function validaForm(e) { //tem como argumento 'e' que será usado para acessar o objeto do formulário por meio do '.target'
+            let form = e.target; //acesso ao objeto do formulário
+            let formValido = true; //se o retorno da função for true, significa que todos os campos foram preenchidos e que o formulário pode ser submetido
+
+            //acesso aos objetos correspondentes a cada span, localizados após cada campo input
+            const spanUsuario = form.usuario.nextElementSibling; //o nome do campo + a propriedade nextElementSibling indicará o elemento que segue imediatamente após o input usuário, que nesse caso é o elemento span vazio
+            const spanSenha = form.senha.nextElementSibling; //o nome do campo + a propriedade nextElementSibling indicará o elemento que segue imediatamente após o input senha, que nesse caso é o elemento span vazio
+            const spanEmail = form.email.nextElementSibling; //o nome do campo + a propriedade nextElementSibling indicará o elemento que segue imediatamente após o input email, que nesse caso é o elemento span vazio
+
+            spanUsuario.textContent = ""; //inicia-se o span da seção 'usuário' como vazio
+            spanSenha.textContent = ""; //inicia-se o span da seção 'senha' como vazio
+            spanEmail.textContent = ""; //inicia-se o span da seção 'email' como vazio
+
+            if(form.usuario.value == ""){ //verifica se o valor do campo 'usuário' está vazio
+                spanUsuario.textContent = "O campo 'usuário' deve ser preenchido."; //caso o campo esteja vazio, o textContent desse span é alterado para uma mensagem de erro apresentada por esse campo
+                formValido = false; //indica que o campo 'usuário' não foi preenchido e a submissão do formulário será impedida
+            }
+            if(form.senha.value == ""){ //verifica se o valor do campo 'senha' está vazio
+                spanSenha.textContent = "O campo 'senha' deve ser preenchido."; //caso o campo esteja vazio, o textContent desse span é alterado para uma mensagem de erro apresentada por esse campo
+                formValido = false; //indica que o campo 'senha' não foi preenchido e a submissão do formulário será impedida
+            }
+            if(form.email.value == ""){ //verifica se o valor do campo 'email' está vazio
+                spanEmail.textContent = "O campo 'email' deve ser preenchido."; //caso o campo esteja vazio, o textContent desse span é alterado para uma mensagem de erro apresentada por esse campo
+                formValido = false; //indica que o campo 'email' não foi preenchido e a submissão do formulário será impedida
+            }
+            return formValido; //retorno da função, sendo 'true' quando todos os campos do formulário estiverem preenchidos ou 'false' quando algum dos campos estiver em branco
+        }
+
+    </script>
+</body>
+
+</html>

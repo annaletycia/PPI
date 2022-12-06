@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contato</title>
+
+    <style>
+        header {
+            border: solid lavender;
+            width: 100%;
+            background-color: lavender;
+            color: purple;
+
+            font: 15px Arial;
+            text-align: center;
+        }
+
+        a {
+            font-size: 19px;
+            text-align: center;
+            color: purple;
+            padding: 5px, 20px;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: black;
+            background: white
+        }
+
+        body {
+            margin: 0 auto;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        fieldset {
+            text-align: left;
+            background-color: lavender;
+            padding-left: 600px;
+            border: 2px solid purple;
+
+            top: 50%;
+            left: 50%;
+            height: 30%;
+            width: 45%;
+            margin: 0 auto;
+            padding: 2% 4%;
+        }
+
+        legend {
+            text-align: left;
+            width: 100%;
+            color: purple;
+            font: 18px Arial;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            display: block;
+            margin: 8px 0 10px;
+            padding: 8px;
+            width: 95%;
+            border: 0.5px solid purple;
+            border-radius: 4px;
+        }
+
+        input:focus {
+            border: 0.5px solid purple;
+            box-shadow: 0px 0px 5px rgb(233, 154, 226);
+            outline: none;
+        }
+
+        button {
+            text-align: center;
+            position: absolute;
+            height: 5%;
+            width: 7%;
+            margin: 0 auto;
+
+            color: purple;
+            border: 2px solid purple;
+            border-radius: 15px;
+
+            font-size: 18px;
+        }
+
+        footer {
+            color: purple;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        input:invalid+span::after {
+            content: '✖';
+            color: red;
+        }
+
+        input:valid+span::after {
+            content: '✓';
+            color: limegreen;
+        }
+
+        input::placeholder {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Informações de Contato</h1>
+        <a href="ex4.html">Voltar à página principal</a><br>
+        <br>
+    </header>
+
+    <form action="contato.php" method="post">
+        <br>
+        <fieldset>
+            <legend><b>Dados Pessoais:</b></legend><br>
+
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div> <br>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span></span>
+            </div> <br>
+            <div>
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" required>
+            </div> <br>
+            <div>
+                <label for="telefone">Telefone (com DDD):</label>
+                <input type="tel" id="telefone" name="telefone" required pattern="\d{7}\-\d{4}">
+                <span></span>
+            </div> <br>
+            <div>
+                <label for="nascimento">Data de Nascimento:</label>
+                <input type="date" id="nascimento" name="nascimento">
+            </div> <br>
+            <div>
+                <label for="sexo">Sexo:</label>
+                <select id="sexo" name="sexo">
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                    <option value="NB">Não Binário</option>
+                </select>
+            </div> <br>
+            <div>
+                <label for="estadoCivil">Estado Civil:</label>
+                <select id="estadoCivil" name="estadoCivil">
+                    <option value="S">Solteiro</option>
+                    <option value="C">Casado</option>
+                    <option value="D">Divorciado</option>
+                </select>
+            </div>
+        </fieldset> <br>
+
+        <fieldset>
+            <legend><b>Dados da Empresa:</b></legend> <br>
+
+            <div>
+                <label for="CNPJ">CNPJ:</label>
+                <input type="number" id="CNPJ" name="CNPJ">
+            </div><br>
+            <div>
+                <label for="razaoSocial">Razão Social:</label>
+                <input type="text" id="razaoSocial" name="razaoSocial">
+            </div> <br>
+            <div>
+                <label for="atuacao">Ramo de Atuação:</label>
+                <input type="text" id="atuacao" name="atuacao">
+            </div>
+        </fieldset> <br>
+
+        <fieldset>
+
+            <legend><b>Endereço:</b></legend>
+            <div>
+                <label for="CEP">CEP:</label>
+                <input type="number" id="CEP" name="CEP" required>
+                <span></span>
+            </div> <br>
+            <div>
+                <label for="tipoLogradouro">Tipo de Logradouro:</label>
+                <select id="tipoLogradouro" name="tipoLogradouro" required>
+                    <option value="">Escolha uma opção</option>
+                    <option value="rua">Rua</option>
+                    <option value="bairro">Bairro</option>
+                    <option value="praca">Praça</option>
+                    <option value="avenida">Avenida</option>
+                </select>
+            </div><bR>
+            <div>
+                <label for="logradouro">Logradouro:</label>
+                <input type="text" id="logradouro" name="logradouro" required>
+            </div><br>
+            <div>
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" required>
+            </div><br>
+            <div>
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" required>
+            </div>
+        </fieldset><br>
+
+        <fieldset>
+
+            <legend><b>Descrição Detalhada do Interesse:</b></legend>
+            <div>
+                <label for="descricao">Caixa de texto:</label><br>
+                <textarea id="descricao" name="descricao" cols="40" rows="5"></textarea>
+            </div>
+
+        </fieldset><br>
+
+        <fieldset>
+            <legend><b>Vagas Disponíveis:</b></legend>
+            <div>
+                <input type="checkbox" id="auxiliar" name="vagas[]" value="auxiliar">
+                <label for="auxiliar">Auxiliar Administrativo</label>
+            </div>
+            <div>
+                <input type="checkbox" id="supervisor" name="vagas[]" value="supervisor">
+                <label for="supervisor">Supervisor de Vendas</label>
+            </div>
+            <div>
+                <input type="checkbox" id="assistente" name="vagas[]" value="assistente">
+                <label for="assistente">Assistente de Contabilidade</label>
+            </div>
+            <div>
+                <input type="checkbox" id="analista" name="vagas[]" value="analista">
+                <label for="analista">Analista de Marketing</label>
+            </div>
+        </fieldset><br>
+
+        <fieldset>
+            <legend><b>Área de Interesse:</b></legend>
+            <div>
+                <input type="radio" id="administrativo" name="area" value="administrativo">
+                <label for="administrativo">Administrativo</label>
+            </div>
+            <div>
+                <input type="radio" id="comercial" name="area" value="comercial">
+                <label for="comercial">Comercial</label>
+            </div>
+            <div>
+                <input type="radio" id="industrial" name="area" value="industrial">
+                <label for="industrial">Industrial</label>
+            </div>
+        </fieldset>
+        <div>
+            <br><button>Enviar</button>
+        </div>
+    </form>
+
+    <footer>
+        <br><br>
+        <p>©Copyright 2050 by nobody. All rights reversed.</p>
+    </footer>
+
+</body>
+
+</html>

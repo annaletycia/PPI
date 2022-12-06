@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+
+    <style>
+
+        body {
+            background-image: url(images/pipoca.jpg); /*imagem de fundo da página*/
+        }
+
+        main {
+            position:fixed; /*posicionamento fixo*/
+            top: 50%; /*posição no centro da página*/
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 2% 4%; /*espaço entre o conteúdo e a borda*/
+
+            background-color: rgba(0, 0, 0, 0.863);
+            color: white; /*cor da fonte branco*/
+            border: 0.5px solid rgb(204, 201, 201);
+            border-radius: 15px; /*bordas arredondadas*/
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            
+            /*Limite mínimo e máximo da largura para que o conteúdo dentro da lista aumente até um certo limite*/
+            min-width: 100px;
+            max-width: 500px;
+            /*Limite máximo e mínimo da altura*/
+            min-height: 100px;
+            max-height: 500px;
+        }
+
+        /*Código CSS referente ás características dos itens da lista*/
+        li {
+            width: 230px;
+            padding: 5px 10px 5px 20px;
+            margin: 3px;
+            background-color: black;
+            border: 0.5px solid whitesmoke;
+            border-radius: 3px;
+
+        }
+
+        /*Código CSS referente à exibição do botão que remove um elemento da lista*/
+        li > button {
+            font-size: smaller;
+            float: right; /*posicionado á direita do item da lista*/
+            color: red;
+            border: none;
+            background-color: black;
+            cursor: pointer; /*indica quando o cursor do mouse está sobre esse botão*/
+        }
+    </style>
+</head>
+<body>
+    
+    <main>
+
+        <div>
+        <h1>Lista de Interesses</h1>
+            <label for="lista">Nome do Filme:</label>
+            <input type="text" id="lista" name="lista"> <!--Campo de id 'lista', onde o usuário poderá digitar outros filmes-->
+            <button>Adicionar</button> <!--Botão que permitirá adicionar novos elementos na lista-->
+        </div>
+
+        <div>
+            <ol> <!--Lista ordenada-->
+                <li>Interestelar</li> <!--lista inicialmente com um item-->
+            </ol>
+        </div>
+
+    </main>
+
+    <script>
+        window.onload = function () { //função anônima em que o evento load ocorre quando a página inteira for carregada
+            const botaoAdicionar = document.querySelector("button"); //seleção do elemento correspondente ao botão que adicionará novos itens à lista
+            botaoAdicionar.addEventListener("click", adicionaFilme); //associação da chamada da função adicionaFilme ao click do botão de Adicionar
+
+            const campoFilme = document.querySelector("#lista"); //seleção do objeto correspondente ao id 'lista', que indica o campo em que o usuário poderá digitar os filmes que deseja adicionar à lista
+            //a próxima função possibilita que o usuário pressione a tecla 'Enter' para inserir novos elementos na lista, ao invés de clicar no botaoAdicionar
+            campoFilme.addEventListener("keyup", e => { //função anônima utilizando o operador arrow function que trata o evento 'keyup'. O parâmetro 'e' representa o objeto correspondente ao evento, que nesse caso será um evento de teclado
+                if(e.key === "Enter") //confere se a tecla pressionada foi a tecla "Enter"
+                    adicionaFilme(); //sempre que a tecla "Enter" for pressionada e soltada, a função adicionaFilme será chamada
+            });
+        }
+
+        function adicionaFilme() { //declaração da função adicionaFilme, que incrementará a lista com novos títulos inseridos pelo usuário
+            const campoFilme = document.querySelector("#lista"); //seleção do nó correspondente ao campo de id 'lista', em que o usuário adiciona seus filmes de interesse
+            const listaFilmes = document.querySelector("ol"); //seleção do nó que contém a lista ordenada dos filmes
+
+            const newLi = document.createElement("li"); //criação de um novo elemento/nó da estrutura DOM, do tipo 'li'
+            const newSpan = document.createElement("span"); //criação de um novo elemento/span da estrutura DOM, do tipo 'span'
+            const newButton = document.createElement("button"); //criação de um novo elemento/botão da estrutura DOM, do tipo 'button'
+
+            newSpan.textContent = campoFilme.value; //adiciona por meio do textContent o valor do campoFilme, inserido pelo usuário, no conteúdo do novo span criado
+            newButton.textContent = '✖'; //adiciona o conteúdo do caracter '✖' ao botão
+
+            newLi.appendChild(newSpan); //acrescenta o novo span como filho do novo 'li'
+            newLi.appendChild(newButton); //acrescenta o novo botão como filho do novo 'li'
+            //Logo, o 'li' será composto de duas partes: o span contendo o texto vindo do campoFilme e o botão
+            listaFilmes.appendChild(newLi); //adiciona o novo nó criado, com suas duas partes, como filho da lista de filmes, ou seja, acrescenta-se o novo 'li' ao 'ol' do código, adicionando mais um elemento à lista
+
+            newButton.onclick = function () { //função anônima associada ao evento 'click' do novo botão criado
+                listaFilmes.removeChild(newLi); //acessa o elemento pai do li (listaFilmes) e remove o objeto 'newLi', que representa o novo nó que havia sido criado
+            }
+
+            campoFilme.value = ''; //o valor do campoFilme recebe vazio para que o usuário possa fornecer um novo item a ser adicionado à lista novamente
+        }
+    </script>
+
+</body>
+
+</html>

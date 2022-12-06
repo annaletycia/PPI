@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2</title>
+
+    <style>
+        body {
+            background-image: url(images/bg1.jpg);
+        }
+
+        main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 30%;
+            width: 45%;
+            margin: 0 auto;
+            padding: 2% 4%;
+
+            background-color: white;
+            border: 0.5px solid rgb(204, 201, 201);
+            border-radius: 15px;
+
+            font-size: 18px;
+        }
+
+        input {
+            display: block;
+            margin: 8px 0 10px;
+            padding: 8px;
+            width: 95%;
+            border: 0.5px solid #888;
+            border-radius: 4px;
+        }
+
+        input:focus {
+            border: 0.5px solid purple;
+            box-shadow: 0px 0px 5px rgb(233, 154, 226);
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <form action="login.php" method="post">
+            <div>
+                <label for="user">Usuário:</label>
+                <input type="text" id="user" name="user" required>
+            </div><br>
+            <div>
+                <label for="senha">Senha:</label>
+                <input type="text" id="senha" name="senha" required>
+            </div>
+            <br><button>Entrar</button>
+        </form>
+    </main>
+</body>
+
+</html>

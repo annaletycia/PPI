@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+
+    <style>
+
+        /*Código CSS referente ao cabeçalho da página*/
+        header {
+            text-align: center; /*texto centralizado*/
+            width: 100%;
+            color: orange;
+            background-color: black;
+            padding: 10px 0;
+            margin: 0;
+
+        }
+
+        /*Estilização da barra de navegação*/
+        ul {
+            background-color: rgb(17, 15, 15);
+            padding: 10px 0;
+            margin: 0;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        /*Código CSS dos itens contidos na lista da barra de navegação*/
+        ul li {
+            text-align: center; /*apresenta todos os elementos lado a lado, na mesma linha*/
+            font-family: verdana, Helvetica, sans-serif;
+
+            display: inline;
+            margin: 20px, 40px;
+            padding: 20px 30px;
+        }
+
+        body {
+            margin: 0;
+            font-family: fantasy;
+            text-align: center;
+            background-image: url(images/cortina.jpg);
+        }
+
+        /*Estilização dos botões presentes na barra de navegação*/
+        nav button {
+            border: none;
+            padding: 0 10px;
+            background-color: inherit; /*recebe como cor de fundo o valor de seu elemento pai*/
+            color: white;
+            height: 30px;
+        }
+
+        /*Código CSS referente às características dos botões quando o mouse passa sobre ele*/
+        nav button:hover {
+            color: red;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /*Classe específica para o botão utilizada quando o usuário clica no botão*/
+        button.buttonActive {
+            font-weight: bold; /*conteúdo do botão em negrito*/
+            color: red; /*fonte vermelha*/
+        }
+
+        /*Classe que oculta todos os elementos 'section' que estão dentro de um elemento que utiliza a classe 'tab'*/
+        .tabs section {
+            display: none; /*atributo que torna o conteúdo oculto na exibição da página*/
+        }
+
+        /*Classe utilizada para os elementos 'section' para torná-los visíveis e para que façam parte do layout*/
+        section.tabActive {
+            display: block; /*atributo que torna o conteúdo visível na exibição da página*/
+        }
+
+        main {
+            padding: 0 5%;
+            margin-top: 8em;
+            border: 5px;
+            text-align: justify; /*alinhamento justificado*/
+            width: 60% ;
+            margin: auto;
+
+            border: 2px solid gray;
+            font-family: verdana, Helvetica, sans-serif;
+            color: black;
+            background-color: rgba(238, 238, 238, 0.925); /*cor de fundo levemente transparente*/
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <header> <!--Seção de cabeçalho-->
+        <section>
+            <h1>CINEMA</h1>
+        </section>
+    </header>
+
+    <nav> <!--Seção correspondente á barra de navegação-->
+        <section>
+            <ul> <!--lista não ordenada contento os botões de cada elemento da barra de navegação e seus respectivos atributos de dado personalizados: 'data-tabname'-->
+                <li><button data-tabname="filmes">Filmes</button></li>
+                <li><button data-tabname="salas">Salas</button></li>
+                <li><button data-tabname="snackBar">Snack Bar</button></li>
+                <li><button data-tabname="conta">Conta</button></li>
+                <!--é fornecido um nome diferente para cada um dos botões a fim de diferenciá-los-->
+            </ul>
+        </section>
+    </nav>
+
+    <main>
+
+        <section class="tabs"> <!--section que faz uso da classe 'tabs'-->
+
+            <!--cada section apresentará um nome de identificação, por meio do atributo 'data-tabname', com o respectivo nome do botão vinculado á aba-->
+            <section data-tabname="filmes"> <!--section de filmes-->
+                <h2>Filmes</h2>
+                <p>Filme, fita ou película é um produto audiovisual finalizado, com uma certa duração, para ser exibido no cinema,
+                     na televisão ou em algum outro veículo. Um filme é formado por uma série finita de imagens fixas, registradas
+                     sobre um suporte físico e que, projetadas a uma velocidade maior que a capacidade resolutiva da visão humana, 
+                     dão ao espectador a sensação de movimento.</p>
+                
+                <p>Um filme pode ser categorizado em diferentes tipos de gêneros ao mesmo tempo, sendo em um desses gêneros sempre 
+                    o que é mais destacado durante o longa. Com a criação de cada vez mais filmes ao longo dos anos, esse meio procura 
+                    abordar com o passar dos anos, assuntos originais e inovadores com a intenção de atrair ainda mais pessoas a assistirem os filmes.
+                    Portanto os diferentes tipos de gêneros que já existem até então não podem ser considerados como uma lista definitiva de todos os 
+                    gêneros que já foram criados. (Wikipedia)</p>
+
+                <h3>Filmes em Cartaz:</h3>
+                    <ol>
+                        <li>Sing</li>
+                        <li>Matrix</li>
+                        <li>Pânico</li>
+                        <li>Encanto</li>
+                        <li>Moonlight</li>
+                        <li>Interestelar</li>
+                    </ol>
+            </section>
+
+            <section data-tabname="salas"> <!--section de salas-->
+                <h2>Salas</h2>
+                <p>Uma sala de cinema (ou simplesmente um cinema) é qualquer sala onde ocorrem projeções de filmes cinematográficos, 
+                    mas especialmente uma sala de espetáculos de caráter comercial equipada para esta finalidade.</p>
+
+                <p>Nas salas comerciais, cada espectador compra um bilhete para ter acesso ao filme a que irá assistir. Os filmes, 
+                    no cinema, são projetados em uma grande tela que fica diante do auditório, através de um projetor.</p>
+                    
+                <p>Desde o final dos anos 1990, alguns cinemas passaram a equipar-se para a projeção de cinema digital; este recurso 
+                    permite eliminar a necessidade do uso da película cinematográfica, um material mais caro, porque depende da prata. (Wikipedia)</p>
+                
+                <p>Descubra quais as salas de cinema disponíveis na sua cidade conforme a sua localização.</p>
+            </section>
+
+            <section data-tabname="snackBar"> <!--section de snackBar-->
+                <h2>Snack Bar</h2>
+                <h3>Snacks:</h3>
+                <p>PIPOCA: salgada, doce, amanteigada</p>
+                <p>BEBIDAS: refrigerante, suco</p>
+                <p>DOCES: Fini, M&M's</p>
+
+                <h3>Combos:</h3>
+                <p>COMBO SALGADO: 1 pipoca pequena + 1 bebida pequena</p>
+                <p>COMBO BALDE DOCE: 1 balde pipoca caramelo + 2 bebidas médias</p>
+                <p>COMBO MEGA: 1 pipoca salgada grande com direito a refil + 1 bebida grande</p>
+                <p>COMBO FINI DOCE: 1 pipoca média + 1 bebida média + 1 Fini</p>
+                <p>COMBO BALDE: 1 balde pipoca: salgada ou manteiga + 2 bebidas médias</p>
+            </section>
+
+            <section data-tabname="conta"> <!--section da conta do usuário-->
+                <h2>Conta</h2>
+                <p>Usuário:</p>
+                <p>Email:</p>
+                <p>Meus Dados:</p>
+                <p>Pedidos:</p>
+                <p>Cupons de Desconto:</p>
+                <p><button>Sair</button></p>
+            </section>
+
+        </section>
+
+    </main>
+
+    <script>
+        window.onload = function () { //função anônima em que o evento load ocorre quando a página inteira for carregada
+            buttons = document.querySelectorAll("nav button"); //seleciona todos os botões que aparecerem dentro da barra de navegação
+            for (let button of buttons) { //laço que percorrerá todos os botões selecionados previamente
+                button.onclick = () => openTab(button.dataset.tabname); //associa o evento 'click' de cada botão á chamada da função openTab, passando como argumento o valor do atributo personalizado criado, ou seja, o nome de identificação de cada botão
+            }
+
+            openTab("filmes") //indica qual section será apresentada assim que a página for carregada, nesse caso é a 'filmes'
+        }
+
+        function openTab(tabName) { //função openTab que possui como argumento o nome da aba indicada
+
+            //oculta a tab exibida atualmente
+            const lastTabActive = document.querySelector(".tabActive"); //busca a seção que está atualmente visível pela classe "tabActive"
+            if (lastTabActive !== null) //verifica se o valor é diferente de nulo
+                lastTabActive.className = ""; //remove a classe 'tabActive' deste elemento section, deixando de ser visível na página
+
+            //torna o botão que está ativo em não-ativo
+            const lastButtonActive = document.querySelector(".buttonActive"); //busca o botão que está atualmente ativo pela classe "buttonActive"
+            if (lastButtonActive !== null) //verifica se o valor é diferente de nulo
+                lastButtonActive.className = ""; //remove a classe 'buttonActive' deste elemento, fazendo com que o botão deixe de estar ativo na página
+
+            //seleção de qual section e qual button se tornarão ativos, feita pela string CSS com seletor de atributo
+            const query1 = ".tabs > section[data-tabname='" + tabName + "']"; //seleciona o elemento section que tem o atributo 'data-tabname' igual ao valor passado como argumento da função
+            const query2 = "nav button[data-tabname='" + tabName + "']"; //seleciona o elemento referente ao botão que tem o atributo 'data-tabname' igual ao valor passado como argumento da função
+            
+            //ativação da nova aba e do novo botão selecionados
+            document.querySelector(query1).className = "tabActive"; //acessa-se a propriedade className do elemento escolhido e indica seu novo valor como 'tabActive', tornando a seção visível
+            document.querySelector(query2).className = "buttonActive"; //acessa-se a propriedade className do elemento escolhido e indica seu novo valor como 'buttonActive', tornando o botão visível
+        }
+
+    </script>
+
+</body>
+
+</html>

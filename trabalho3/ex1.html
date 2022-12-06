@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+
+    <style>
+
+        /*Código CSS do corpo da página*/
+        body {
+            font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+            line-height: 1.5rem;
+            background-image: url(images/interestelar.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 30px;
+        }
+
+        /*Código CSS da classe modal, que define como a página será apresentada quando a janela modal for exibida*/
+        .modal { 
+            background-color: #0006; /*define a transparência da página ao fundo*/
+            display: none; /*indica que inicialmente o modal não será apresentado na tela, sendo ativado por meio do código JS*/
+            width: 100%; /*ocupa 100% da página*/
+            height: 100%;
+
+            position: fixed; /*posicionamento fixo*/
+            top: 0;
+            left: 0;
+
+            overflow: auto;
+            z-index: 1;
+        }
+
+        /*Código CSS da classe modalContent, que define as características da janela modal propriamente dita*/
+        .modalContent {
+            background-color: #eee; /*cor de fundo da janela modal é diferente do da página ao fundo, possibilitando um contraste*/ 
+            margin: auto;
+            padding: 20px;
+            border: 0.5px solid #aaa;
+            box-shadow: 0 0 5px #333;
+
+            width: 50%;
+            position: absolute; /*posicionamento absoluto e centralizado na página, local onde o conteúdo será apresentado*/
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /*Código CSS do botão da classe modalContent */
+        .modalContent button {
+            width: 100%; /*botão de tamanho largo*/
+            background-color: rgb(179, 213, 235); /*coloração azulada do botão*/
+            border-radius: 2px;
+            border: 2px solid rgb(159, 200, 255);
+            padding: 5px; 
+            color: #333;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /*Código CSS referente às características do botão da classe modalContent quando o mouse passar sobre ele*/
+        .modalContent button:hover {
+            background-color: lightgreen; /*a cor do botão deixa de ser azul e passa a ser verde*/
+            border: 2px solid green; 
+        }
+    </style>
+</head>
+
+<body>
+    
+    <main>
+
+        <h1>Interestelar (2014)</h1>
+        <h3>Sobre o filme:</h3>
+        <p>Após ver a Terra consumindo boa parte de suas reservas naturais, um grupo de astronautas recebe
+             a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a 
+             continuação da espécie. Cooper (Matthew McConaughey) é chamado para liderar o grupo e aceita a 
+             missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand (Anne Hathaway), Jenkins (Marlon Sanders) 
+             e Doyle (Wes Bentley), ele seguirá em busca de uma nova casa. Com o passar dos anos, sua filha Murph (Mackenzie Foy e Jessica Chastain) 
+             investirá numa própria jornada para também tentar salvar a população do planeta.</p>
+
+        <h3>Onde assistir:</h3>
+        <ul>
+            <li>HBO Max</li>
+            <li>Globoplay</li>
+            <li>Apple TV</li>
+            <li>Amazon Prime Video</li>
+        </ul>
+        <button type="button" id="btnOpenModal">Adicionar à Minha Lista</button> <!--Código HTML referente ao botão presente na página principal, de id 'btnOpenModal' e que abrirá a janela modal-->
+    
+    </main>
+
+    <div id="modalTeste" class="modal"> <!--div correspondente à janela modal, por isso a declaração da classe 'modal', a qual possibilita o escurecimento da página que ficará ao fundo-->
+
+        <div class="modalContent"> <!--div que faz uso da classe modalContent, que indica qual conteúdo será exibido na janela modal-->
+            <h2>Filme adicionado à sua Lista de Interesses!</h2> <!--Conteúdo da janela modal-->
+            <button class="buttonClose">Ok</button> <!--Botão da classe 'buttonClose' que estará presente na janela modal e que por meio do JS irá fechá-la-->
+        </div>
+
+    </div>
+
+    <script>
+        
+        window.onload = function () { //função anônima em que o evento load ocorre quando a página inteira for carregada
+
+            const modal = document.querySelector(".modal"); //seleciona o objeto correspondente ao div de classe 'modal'
+            const buttonClose = modal.querySelector(".buttonClose"); //seleciona o elemento correspondente ao botão de fechar o modal, pela classe 'buttonClose', que está dentro da própria janela do modal
+
+            buttonClose.addEventListener("click", function () { //função anônima que será executada quando o botão de fechar da classe modal for acionado com um click
+                modal.style.display = 'none'; //alteração da propriedade display do objeto referente a div do modal para none, a fim de que o modal não seja mais apresentado na tela, ou seja, fechando a janela modal
+            });
+
+            const buttonOpenModal = document.getElementById("btnOpenModal"); //seleciona o elemente referente ao botão de abrir o modal, pelo id 'btnOpenModal', presente na página principal
+            buttonOpenModal.addEventListener("click", function () { //função anônima que será executada ao click do botão de abrir o modal
+                modal.style.display = 'block' //alteração da propriedade display do objeto referente a div do modal para block, tornando o elemento visível, ou seja, abrindo a janela modal
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>
